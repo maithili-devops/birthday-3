@@ -1,0 +1,155 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Courier New', monospace;
+    background: linear-gradient(-45deg, #0a0a23, #1a1a3e, #16213e, #0f3460);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    height: 100vh;
+    overflow: hidden;
+    color: #00ff41;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    text-align: center;
+}
+
+.terminal {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 255, 65, 0.3);
+    border: 1px solid #ebbf57;
+    max-width: 600px;
+}
+
+.prompt {
+    color: #00ff41;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.message {
+    color: #fb08fb;
+    font-size: 20px;
+    margin-bottom: 20px;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0.3; }
+}
+
+.birthday-text {
+    font-size: 2.5em;
+    background: linear-gradient(45deg, #b5fbc7, #ff00ff, #00bfff);
+    background-size: 300% 300%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textGlow 3s ease-in-out infinite alternate;
+    margin-bottom: 20px;
+}
+
+@keyframes textGlow {
+    from { filter: drop-shadow(0 0 10px #9b6c0e); }
+    to { filter: drop-shadow(0 0 30px #ff00ff); }
+}
+
+p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+#explode-btn {
+    background: #de9c46;
+    color: #000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 1.1em;
+    font-family: inherit;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 0 10px rgba(13, 100, 35, 0.5);
+}
+
+#explode-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(239, 188, 85, 0.8);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+    font-size: 0.9em;
+}
+
+.stats span {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+/* Floating binary hearts */
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: float 6s infinite linear;
+    color: #ff1493;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+}
+
+@media (max-width: 768px) {
+    .birthday-text { font-size: 2em; }
+    .terminal { padding: 20px; margin: 20px; }
+}
+
+.name {
+    text-align: center;
+    font-size: 2.2em;
+    color: #d78c37;  /* Hot pink for love theme */
+    text-shadow: 0 0 10px #ff1493;
+    margin: 10px 0;
+    font-weight: bold;
+    letter-spacing: 3px;
+    animation: nameGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes nameGlow {
+    from { 
+        filter: drop-shadow(0 0 5px #ff1493);
+        transform: scale(1);
+    }
+    to { 
+        filter: drop-shadow(0 0 20px #ff00ff);
+        transform: scale(1.05);
+    }
+}
